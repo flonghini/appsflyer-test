@@ -7,13 +7,16 @@ import Config from "react-native-config";
 export default function App() {
   const devKey = Config.APPS_FLYER_DEV_KEY;
   const isDebug = Config.APPS_FLYER_IS_DEBUG;
-  const appId = Config.APPS_FLYER_ANDROID_APP_ID;
+  const appId = Config.APPS_FLYER_IOS_APP_ID;
 
   const appsFlyerParams = {
     devKey,
     isDebug,
     appId,
   };
+
+  let sdkResponse;
+
   if (
     Object.values(appsFlyerParams).every(
       (paramValue) => paramValue !== undefined
@@ -22,9 +25,11 @@ export default function App() {
     appsFlyer.initSdk(
       appsFlyerParams,
       (result) => {
+        sdkResponse = result;
         console.log(`AppsFlyer initialization ${result}`);
       },
       (error) => {
+        sdkResponse = error;
         console.error(`AppsFlyer initialization ${error}`);
       }
     );
@@ -32,7 +37,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{`AppsFlyer successfully connected? Pls check logs`}</Text>
       <StatusBar style="auto" />
     </View>
   );
