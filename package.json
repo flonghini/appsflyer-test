@@ -15,6 +15,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
+    "react-native-appsflyer": "^6.2.10",
+    "react-native-config": "^1.4.2",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-reanimated": "~1.13.0",
     "react-native-screens": "~2.15.0",

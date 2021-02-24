@@ -9,6 +9,7 @@ target 'myproject' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
 
   # Uncomment the code below to enable Flipper.
   #
